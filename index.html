@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Un invito speciale... 💜</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6 position-relative" style="min-height: 450px;">
+
+      <form action="https://formspree.io/f/mnjkjbnq" method="POST" id="appointment-form">
+
+        <input type="hidden" name="_next" value="https://formspree.io/thanks">
+
+        <div id="step-1" class="card custom-card p-5 text-center step active">
+          <div class="heart-pulse mb-3">💜</div>
+          <h1 class="display-6 text-purple fw-bold mb-4">Vuoi uscire con me??</h1>
+
+          <div class="d-flex justify-content-center align-items-center gap-3 mt-5 position-relative" style="min-height: 100px;">
+            <button type="button" class="btn btn-love btn-lg px-5" onclick="nextStep(2)">SÌ! 😍</button>
+            <button type="button" id="btn-no" class="btn btn-lg px-5">No 😢</button>
+          </div>
+        </div>
+
+        <div id="step-2" class="card custom-card p-5 step">
+          <h2 class="h3 text-purple fw-bold text-center mb-4">Quando sei libera? 📅</h2>
+
+          <div class="mb-4">
+            <label for="date" class="form-label fw-semibold text-secondary">Scegli il giorno:</label>
+            <input type="date" id="date" name="Data" class="form-control form-control-lg border-2" required>
+          </div>
+
+          <div class="mb-5">
+            <label for="time" class="form-label fw-semibold text-secondary">Scegli l'orario perfetto:</label>
+            <select id="time" name="Ora" class="form-select form-select-lg border-2" required>
+              <option value="" disabled selected>A che ora passo?</option>
+              <option value="19:30">19:30 🕗</option>
+              <option value="20:00">20:00 🕗</option>
+              <option value="20:15">20:15 🕗</option>
+              <option value="20:30">20:30 🕣</option>
+              <option value="21:00">21:00 🕘</option>
+            </select>
+          </div>
+
+          <button type="button" class="btn btn-love w-100 btn-lg" onclick="goToStep3()">Continua... 🚀</button>
+        </div>
+
+        <div id="step-3" class="card custom-card p-5 step">
+          <h2 class="h3 text-purple fw-bold text-center mb-2">Cosa ti va di mangiare? 🍕</h2>
+          <p class="text-muted text-center mb-4">Seleziona il tuo ristorante preferito:</p>
+
+          <input type="hidden" id="selected-restaurant" name="Ristorante" required>
+
+          <div class="row g-3 mb-5">
+            <div class="col-6">
+              <div class="restaurant-option p-3 text-center" onclick="selectRestaurant('Sushi', this)">
+                <div class="fs-2">🍣</div>
+                <div class="fw-bold text-secondary">Sushi</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="restaurant-option p-3 text-center" onclick="selectRestaurant('Pizza', this)">
+                <div class="fs-2">🍕</div>
+                <div class="fw-bold text-secondary">Pizza</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="restaurant-option p-3 text-center" onclick="selectRestaurant('Ramen', this)">
+                <div class="fs-2">🍜</div>
+                <div class="fw-bold text-secondary">Ramen</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="restaurant-option p-3 text-center" onclick="selectRestaurant('Piadina', this)">
+                <div class="fs-2">🫓</div>
+                <div class="fw-bold text-secondary">Piadina</div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="restaurant-option p-3 text-center" onclick="selectRestaurant('Hamburger', this)">
+                <div class="fs-2">🍔</div>
+                <div class="fw-bold text-secondary">Hamburger</div>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" id="btn-submit" class="btn btn-love w-100 btn-lg" disabled>
+            Conferma Prenotazione! 💜
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="js/app.js"></script>
+
+</body>
+</html>
